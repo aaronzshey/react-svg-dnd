@@ -1,0 +1,11 @@
+circle {
+  fill: white;
+}
+
+circle.active {
+  fill: magenta;
+}
+
+circle.inactive {
+  fill: white;
+}

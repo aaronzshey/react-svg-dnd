@@ -26,10 +26,28 @@ function Circle() {
 
       // the coords field stores the current position of the mouse.  
       // without the coords field, the circle will also jump to the position 
+
       // of the mouse when the mouse is moved
+
+      console.log(position.x, position.y)
+
+
+      // snapping code
+
+      let newX = position.x - xDiff;
+      let newY = position.y - yDiff;
+
+      if (Math.abs(newX - 100) <= 20) {
+        newX = 100;
+      }
+      if (Math.abs(newY - 100) <= 20) {
+        newY = 100;
+      }
+
+
       return {
-        x: position.x - xDiff,
-        y: position.y - yDiff,
+        x: newX,
+        y: newY,
         coords: {
           x: e.pageX,
           y: e.pageY,
@@ -90,6 +108,7 @@ function Circle() {
       onMouseLeave={handleMouseLeave}
     >
       <circle
+        className="inactive"
         cx={position.x}
         cy={position.y}
         r={25}
